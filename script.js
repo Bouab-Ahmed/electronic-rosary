@@ -3,8 +3,12 @@ const reset = document.querySelectorAll('#reset');
 
 window.addEventListener('load', () => {
   plus.forEach((button, i) => {
-    button.parentElement.previousElementSibling.textContent =
-      localStorage.getItem(i);
+    if (i in localStorage) {
+      button.parentElement.previousElementSibling.textContent =
+        localStorage.getItem(i);
+    } else {
+      button.parentElement.previousElementSibling.textContent = 0;
+    }
   });
 });
 
